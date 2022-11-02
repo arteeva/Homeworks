@@ -11,7 +11,7 @@
 
 
 
-
+/*
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
 // Например, задан массив:
@@ -55,17 +55,16 @@ void Show2DArray (int[,] array)
 
 int[] MinSumElementsOfRow(int[,] array)
 {
-    
+    int[] newArray = new int[array.GetLength(0)];
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        int[] newArray = new int[array.GetLength(0)];
         int sum = 0;
         for (int j = 0; j < array.GetLength(1); j++)
         {
             sum = sum + array[i,j];
         }
         newArray[i] = sum;
-        //Console.WriteLine($"Сумма элементов {i}-той строки = {sum}");
+        Console.WriteLine($"Сумма элементов {i}-той строки = {sum}");
     }
     return newArray;  
 }
@@ -73,13 +72,17 @@ int[] MinSumElementsOfRow(int[,] array)
 int FindMinOfSumElOfRows(int[] array)
 {
     int min = array[0];
-    for (int i = 1; i < array.GetLength(0); i++)
+    int indexMinSum = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        if(array[i] < min) min = array[i];
+        if(array[i] < min) 
+        {
+            min = array[i];
+            indexMinSum = i;
+        }
     }
-    return min;
+    return indexMinSum;
 }
-
 
 Console.Write("Введите количество строк -> ");
 int m = Convert.ToInt32(Console.ReadLine());
@@ -92,8 +95,9 @@ int max = Convert.ToInt32(Console.ReadLine());
 
 int[,] myArray = Create2DRandomArray(m, n, min, max);
 Show2DArray (myArray);
-int[] result = FindMinOfSumElOfRows(SumElementsOfRow(myArray));
-Console.WriteLine($"Индекс строки с наименьшей суммой элементов -> {result}");
+int result = FindMinOfSumElOfRows(MinSumElementsOfRow(myArray));
+Console.WriteLine($"Индекс строки с наименьшей суммой элементов -> {result}.(Строка {result+1}).");
+*/
 
 
 
